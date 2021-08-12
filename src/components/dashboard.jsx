@@ -7,8 +7,13 @@ import ReactFlow, {
 
 import Sidebar from './sidebar';
 import Controls from './controls';
+import CustomNode from './customNode';
 
 import './dnd.css';
+
+const nodeTypes = {
+  selectorNode: CustomNode,
+};
 
 const initialElements = [{ id: '1', type: 'input', data: { label: 'input node' }, position: { x: 250, y: 5 } }];
 
@@ -51,6 +56,7 @@ const DnDFlow = () => {
         <div className="reactflow-wrapper">
           <ReactFlow
             elements={elements}
+            nodeTypes={nodeTypes}
             onConnect={onConnect}
             onElementsRemove={onElementsRemove}
             onLoad={onLoad}
