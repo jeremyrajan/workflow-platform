@@ -7,16 +7,16 @@ const Sidebar = () => {
   };
 
   return (
-    <aside>
-      <div className="description">You can drag these nodes to the pane on the right.</div>
-      <div className="dndnode input" onDragStart={(event) => onDragStart(event, 'input')} draggable>
-        Input Node
+    <aside className="text-white bg-gray-600 shadow-sm w-10">
+      <div className="description">You can drag these nodes to the pane on the left.</div>
+      <div className="dndnode input bg-green-400 text-black py-2 shadow-sm" onDragStart={(event) => onDragStart(event, 'input')} draggable>
+        Trigger
       </div>
-      <div className="dndnode" onDragStart={(event) => onDragStart(event, 'default')} draggable>
-        Default Node
+      <div className="dndnode bg-gray-300 py-2 text-gray-500 shadow-sm" onDragStart={(event) => onDragStart(event, 'default')} draggable>
+        Condition
       </div>
-      <div className="dndnode output" onDragStart={(event) => onDragStart(event, 'output')} draggable>
-        Output Node
+      <div className="dndnode output bg-purple-600 py-2 shadow-sm" onDragStart={(event) => onDragStart(event, 'output')} draggable>
+        Output
       </div>
     </aside>
   );

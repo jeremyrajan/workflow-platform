@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   font-family: sans-serif;
   color: #111;
@@ -132,7 +136,6 @@ header select {
   flex-grow: 1;
 }
 .dndflow aside {
-  background: #fcfcfc;
   border-right: 1px solid #eee;
   font-size: 12px;
   padding: 15px 10px;
@@ -143,20 +146,14 @@ header select {
 }
 .dndflow .dndnode {
   align-items: center;
-  border: 1px solid #1a192b;
   border-radius: 2px;
   cursor: grab;
   display: flex;
-  height: 20px;
+  /* height: 20px; */
   justify-content: center;
-  padding: 4px;
+  /* padding: 4px; */
 }
-.dndflow .dndnode.input {
-  border-color: #0041d0;
-}
-.dndflow .dndnode.output {
-  border-color: #ff0072;
-}
+
 .dndflow .reactflow-wrapper {
   flex-grow: 1;
   height: 100%;

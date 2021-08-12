@@ -45,9 +45,9 @@ const Controls = ({ rfInstance, setElements }) => {
   // }, [setElements]);
 
   return (
-    <div className="save__controls">
-      <button onClick={onSave}>save</button>
-      <button onClick={onRestore}>restore</button>
+    <div className="save__controls mt-3">
+      <button className="mr-2 p-1 w-20 capitalize rounded-sm bg-green-600 text-white" onClick={onSave}>save</button>
+      <button className="p-1 w-20 capitalize rounded-sm bg-red-600 text-white" onClick={onRestore}>restore</button>
       {/* <button onClick={onAdd}>add node</button> */}
     </div>
   );
