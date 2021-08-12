@@ -12,7 +12,7 @@ const Sidebar = () => {
       <div className="dndnode input bg-green-400 text-black py-2 shadow-sm" onDragStart={(event) => onDragStart(event, 'input')} draggable>
         Trigger
       </div>
-      <div className="dndnode bg-gray-300 py-2 text-gray-500 shadow-sm" onDragStart={(event) => onDragStart(event, 'selectorNode')} draggable>
+      <div className="dndnode bg-gray-300 py-2 text-gray-500 shadow-sm" onDragStart={(event) => onDragStart(event, 'conditionNode')} draggable>
         Condition
       </div>
       <div className="dndnode output bg-purple-600 py-2 shadow-sm" onDragStart={(event) => onDragStart(event, 'output')} draggable>

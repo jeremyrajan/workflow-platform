@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   addEdge,
-  removeElements
+  removeElements,
+  MiniMap,
+  Background,
+  Controls
 } from 'react-flow-renderer';
 
 import Sidebar from './sidebar';
-import Controls from './controls';
+import CustomControls from './controls';
 import CustomNode from './customNode';
+import CustomEdge from './customEdge';
+
 
 import './dnd.css';
 
 const nodeTypes = {
-  selectorNode: CustomNode,
+  conditionNode: CustomNode,
+};
+const edgeTypes = {
+  custom: CustomEdge,
 };
 
 const initialElements = [{ id: '1', type: 'input', data: { label: 'input node' }, position: { x: 250, y: 5 } }];
@@ -29,7 +37,10 @@ const DnDFlow = () => {
   const [reactFlowInstance, setReactFlowInstance] = useState();
   const [elements, setElements] = useState(initialElements);
 
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const onConnect = (params) => setElements((els) => {
+    const config = {label: '',animated: true, arrowHeadType: 'arrow', ...params};
+    return addEdge(config, els);
+  });
   const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
   const onLoad = (_reactFlowInstance) => setReactFlowInstance(_reactFlowInstance);
 
@@ -60,10 +71,14 @@ const DnDFlow = () => {
             onConnect={onConnect}
             onElementsRemove={onElementsRemove}
             onLoad={onLoad}
+            edgeTypes={edgeTypes}
             onDrop={onDrop}
             onDragOver={onDragOver}
           >
-            <Controls rfInstance={reactFlowInstance} setElements={setElements} />  
+            <MiniMap />
+            <Controls />
+            <CustomControls rfInstance={reactFlowInstance} setElements={setElements} />  
+            <Background />
           </ReactFlow>
         </div>
         <Sidebar />
